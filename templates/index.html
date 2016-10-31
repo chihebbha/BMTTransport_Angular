@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BMT Transport | Welcome</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="" />
+<meta name="author" content="http://bootstraptaste.com" />
+    <link href="css/style1.css" rel="stylesheet">
+<!-- css -->
+
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+<div id="wrapper">
+	<!-- start header -->
+	<header>
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                                       <a class="navbar-brand" href="#/"><img src="../img/logo.png"/><span>BMT</span>ransport</a>
+
+                </div>
+                <div class="navbar-collapse collapse ">
+                    <ul class="nav navbar-nav" ng-controller="verifCtrl">
+                        <li class="active"><a href="#/">Home</a></li>
+                        
+                        <!--<li class="dropdown">
+                            <a href="#/" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Features <b class=" icon-angle-down"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="typography.html">Typography</a></li>
+                                <li><a href="components.html">Components</a></li>
+								<li><a href="pricingbox.html">Pricing box</a></li>
+                            </ul>
+                        </li> -->
+                        
+                        <li><a href="#/">News</a></li>
+                        <li><a href="#/" ng-if="login">About Us</a></li>
+                        <li><a href="#/subscriptions" ng-if="logout">Get a card</a></li>
+                         <li  ng-if="!login" class="dropdown" ><a href="" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Booking</a>
+                        
+                            
+                             <ul class="dropdown-menu">
+                                <li><a href="#/reservations">my bookings</a></li>
+                                 <li><a href="#/Addreservations">book</a></li>
+                            </ul>
+                        
+                        
+                        </li>
+                       <li   class="dropdown"  ng-if="!login"><a href="" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Claim</a>
+                        
+                            
+                             <ul class="dropdown-menu">
+                                <li><a href="#/reclamations">my claims</a></li>
+                                 <li><a href="#/AddReclamations">Claiming</a></li>
+                            </ul>
+                        
+                        
+                        </li>
+                        <li ng-if="!login"><a href="#/listBus">Our Fleet</a></li>
+                        <li ng-if="!login"><a href="#/stat" ng-if="!login">Statistics</a></li>
+                        
+                        <li ng-if="login"><a href="#/contact">Contact</a></li>
+                        
+                        <li><a ng-if="login" href="#/login">Login / SignUp</a></li>
+                        
+                        <li><a ng-if="logout" href="#/login">Logout</a></li>
+                        
+                        <li ng-if="logout" class="dropdown" ng-controller="verifCtrl">
+                            
+                            <img  src="../img/{{usermail}}.png" alt="" href="#/" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false" style="border-radius: 50px; margin-left: 50px; margin-top: -10px; width: 60px; height: 60px;"/>
+
+                            <ul class="dropdown-menu">
+                                <li><a href="#/">Change your picture</a></li>
+                            </ul>
+                            
+                            <br>&nbsp;&nbsp;&nbsp;{{usernomprenom}}
+                        </li>
+                        
+                        <li ng-if="login" class="dropdown" ng-controller="verifCtrl">
+        
+                            <img src="../img/avatar.png" alt="" href="#/" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false" style="border-radius: 50px; margin-left: 50px; margin-top: -10px; width: 60px; height: 60px;"/>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/">Change your picture</a></li>
+                            </ul>
+                        </li>
+                        
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</header>
+	<!-- end header -->
+	<section id="featured">
+	<!-- start slider -->
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+	<!-- Slider -->
+        <div id="main-slider" >
+            <ul class="slides">
+              <li>
+                <img src="../img/slides/bus.jpg" alt="" style="margin-left: 60px;"/>
+                <div class="flex-caption" style="margin-right: 90px;">
+                    
+                    <!--weather cyrine sattar rabi :p -->
+
+
+                   
+                    <table>
+
+
+                     <tr>   
+                         <td><h4> Weather </h4></td>
+                    
+                     <td> <img src="../img/Thunderstorms%20Snow.png" width="70%"></td>
+                        <td> <img src="../img/Slight%20Drizzle.png" width="70%"> </td>
+                         
+                         </tr>
+                    </table>
+
+
+<div ng-app="weatherApp">
+  <div ng-controller="weatherController as weather"> 
+    <form ng-submit="refresh()">
+      <input type="text" ng-model="location" placeholder="Type and hit enter to update location" style="color: black;"/>
+    </form>
+
+     <h2 class="error" ng-show="!weatherData.name">
+    {{weatherData.message}}
+    </h2>
+      <h2 class="loading">Loading...</h2>
+    <div ng-if="weatherData.name" class="card" ng-class="{hot: weatherData.main.temp - 273 >= 23, mid: weatherData.main.temp - 273 > 15, cool: weatherData.main.temp - 273 < 15 }">
+    <h2>{{weatherData.name}}, {{weatherData.sys.country}}</h2>
+     
+      
+    <div class="icon">
+    <!-- Clear Sky -->
+      
+    <!-- Day -->
+    <i ng-if="weatherData.weather[0].id == 800 && weatherData.dt < weatherData.sys.sunset" class="wi wi-day-sunny"></i>  
+    
+    <!-- Night -->
+    <i ng-if="weatherData.weather[0].id == 800 && weatherData.dt > weatherData.sys.sunset" class="wi wi-night-clear"></i> 
+     
+      
+    <!-- Cloudy -->
+    <i ng-if="weatherData.weather[0].id >= 801 && weatherData.weather[0].id <= 804 && weatherData.dt < weatherData.sys.sunset && weatherData.clouds.all < 50" class="wi wi-day-cloudy"></i>  
+      
+    <i ng-if="weatherData.weather[0].id >= 801 && weatherData.weather[0].id <= 804 && weatherData.dt > weatherData.sys.sunset && weatherData.clouds.all < 50" class="wi wi-night-cloudy"></i> 
+      
+    <i ng-if="weatherData.weather[0].id >= 801 && weatherData.weather[0].id <= 804 && weatherData.clouds.all >= 50" class="wi wi-cloudy"></i> 
+      
+    <!-- Drizzle -->
+    <i ng-if="weatherData.weather[0].id >= 300 && weatherData.weather[0].id <= 321 && weatherData.dt < weatherData.sys.sunset && weatherData.clouds.all < 50" class="wi wi-day-rain-mix"></i>  
+      
+    <i ng-if="weatherData.weather[0].id >= 300 && weatherData.weather[0].id <= 321 && weatherData.dt > weatherData.sys.sunset && weatherData.clouds.all < 50" class="wi wi-night-alt-rain-mix"></i> 
+      
+    <i ng-if="weatherData.weather[0].id >= 300 && weatherData.weather[0].id <= 321 && weatherData.clouds.all >= 50" class="wi wi-rain-mix"></i>
+      
+    <!-- Rain -->
+    <i ng-if="weatherData.weather[0].id >= 500 && weatherData.weather[0].id <= 531 && weatherData.dt < weatherData.sys.sunset && weatherData.clouds.all < 50" class="wi wi-day-rain"></i>  
+      
+    <i ng-if="weatherData.weather[0].id >= 500 && weatherData.weather[0].id <= 531 && weatherData.dt > weatherData.sys.sunset && weatherData.clouds.all < 50" class="wi wi-night-rain"></i> 
+      
+    <i ng-if="weatherData.weather[0].id >= 500 && weatherData.weather[0].id <= 531 && weatherData.clouds.all >= 50" class="wi wi-rain"></i>
+      
+    <!-- Snow -->
+    <i ng-if="weatherData.weather[0].id >= 600 && weatherData.weather[0].id <= 622 && weatherData.dt < weatherData.sys.sunset && weatherData.clouds.all < 50" class="wi wi-day-snow"></i>  
+      
+    <i ng-if="weatherData.weather[0].id >= 600 && weatherData.weather[0].id <= 622 && weatherData.dt > weatherData.sys.sunset && weatherData.clouds.all < 50" class="wi wi-night-snow"></i> 
+      
+    <i ng-if="weatherData.weather[0].id >= 600 && weatherData.weather[0].id <= 622 && weatherData.clouds.all >= 50" class="wi wi-snow"></i>
+      
+    <!-- Thunder Storms -->
+    <i ng-if="weatherData.weather[0].id >= 200 && weatherData.weather[0].id <= 232 && weatherData.dt < weatherData.sys.sunset && weatherData.clouds.all < 50" class="wi wi-day-thunderstorm"></i>  
+      
+    <i ng-if="weatherData.weather[0].id >= 200 && weatherData.weather[0].id <= 232 && weatherData.dt > weatherData.sys.sunset && weatherData.clouds.all < 50" class="wi wi-night-thunderstorm"></i> 
+      
+    <i ng-if="weatherData.weather[0].id >= 200 && weatherData.weather[0].id <= 232 && weatherData.clouds.all >= 50" class="wi wi-thunderstorm"></i>
+      
+    <!-- Mist and Fog -->
+      
+     <i ng-if="weatherData.weather[0].id >= 701 && weatherData.weather[0].id <= 781" class="wi wi-fog"></i>
+      
+    </div>
+      
+    <p class="info">
+      <h3>{{weatherData.main.temp - 273 | number:0}}&deg;C</h3>{{weatherData.weather[0].main}}: {{weatherData.weather[0].description}}</p>
+    </div>
+         </div>
+    
+  </div>
+
+
+
+
+
+                            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </div>
+              </li>
+             <!-- <li>
+                <img src="../img/slides/2.jpg" alt="" />
+                <div class="flex-caption">
+                    <h3>Fully Responsive</h3> 
+					<p>Sodales neque vitae justo sollicitudin aliquet sit amet diam curabitur sed fermentum.</p> 
+					<a href="#" class="btn btn-theme">Learn More</a>
+                </div>
+              </li>
+              <li>
+                <img src="../img/slides/3.jpg" alt="" />
+                <div class="flex-caption">
+                    <h3>Clean & Fast</h3> 
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit donec mer lacinia.</p> 
+					<a href="#" class="btn btn-theme">Learn More</a>
+                </div>
+              </li>-->
+            </ul>
+        </div>
+	<!-- end slider -->
+			</div>
+		</div>
+	</div>	
+	
+	
+
+	</section>
+	<section class="callaction">
+
+        
+        <h5 align="center"> Consult schedules of departures and arrivals of trains updated in real time</h5>
+        
+        
+        
+        <div align="center" ng-controller="MainController">
+        
+         <h1> 
+      <span class="l"></span><span class="r"></span>
+    </h1>
+    <p></p>
+    <div class="wrapp"  style="width:300px;height:50px">
+      <flex-calendar  options="options" events="events"></flex-calendar>
+    </div>
+                                                                                                                                                        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    
+            
+            
+         
+    
+    
+
+     
+       <div  ng-repeat ="item in items " class="arrondi">
+                
+                   <div align="center">
+                 <th>
+ <p> <font  align="right"  > <i align="center">
+                
+     date de départ est <font color="#002147"> {{item.dateDepart_Planning | date:'yyyy-MM-dd'}} </font>
+                 <br>
+     date d'arrivée est <font color="#002147"> {{item.dateArrivee_Planning | date:'yyyy-MM-dd'}} </font>
+                 <br>
+                 
+     dérigé vers    <font color="#002147"> {{item.itinerary.arret_Itinerary }} </font>
+                 <br>
+     a travers  <font color="#002147"> {{item.vehicle.type_Bus }} </font>
+                 
+     </th>
+     </div>   
+     
+  </div>
+
+    
+
+    
+    
+
+        
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      <!--  <div class="container" ng-controller="FacebookController">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          
+          <div class="page-header">
+            <h1>Authentication with facebook!</h1>  
+          </div>
+          
+          <div>
+            <div class="alert alert-info" ng-show="salutation">Hello, {{user.name}}</div>
+            <div class="alert alert-warning" ng-show="byebye">Bye bye :'(</div>
+          </div>
+          
+          <button type="button" class="btn btn-primary btn-large" ng-show="!logged" data-ng-disabled="!facebookReady" ng-click="IntentLogin()">Login with Facebook</button>
+          <button type="button" class="btn btn-danger btn-large" ng-show="logged" data-ng-disabled="!facebookReady" ng-click="logout()">Logout</button>
+          
+          <div>
+            <debug val="user"></debug>
+          </div>
+          
+        </div>
+      </div>
+    </div> -->
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+	</section>
+	<section id="content">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="row">
+					<div class="col-lg-3">
+						<div class="box">
+							<div class="box-gray aligncenter">
+								<h4>Fully responsive</h4>
+								<div class="icon">
+								<i class="fa fa-desktop fa-3x"></i>
+								</div>
+								<p>
+								 Voluptatem accusantium doloremque laudantium sprea totam rem aperiam.
+								</p>
+									
+							</div>
+							<div class="box-bottom">
+								<a href="#">Learn more</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="box">
+							<div class="box-gray aligncenter">
+								<h4>Modern Style</h4>
+								<div class="icon">
+								<i class="fa fa-pagelines fa-3x"></i>
+								</div>
+								<p>
+								 Voluptatem accusantium doloremque laudantium sprea totam rem aperiam.
+								</p>
+									
+							</div>
+							<div class="box-bottom">
+								<a href="#">Learn more</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="box">
+							<div class="box-gray aligncenter">
+								<h4>Customizable</h4>
+								<div class="icon">
+								<i class="fa fa-edit fa-3x"></i>
+								</div>
+								<p>
+								 Voluptatem accusantium doloremque laudantium sprea totam rem aperiam.
+								</p>
+									
+							</div>
+							<div class="box-bottom">
+								<a href="#">Learn more</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="box">
+							<div class="box-gray aligncenter">
+								<h4>Valid HTML5</h4>
+								<div class="icon">
+								<i class="fa fa-code fa-3x"></i>
+								</div>
+								<p>
+								 Voluptatem accusantium doloremque laudantium sprea totam rem aperiam.
+								</p>
+									
+							</div>
+							<div class="box-bottom">
+								<a href="#">Learn more</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- divider -->
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="solidline">
+				</div>
+			</div>
+		</div>
+		<!-- end divider -->
+		<!-- Portfolio Projects -->
+		<div class="row">
+			<div class="col-lg-12">
+				<h4 class="heading">Recent Works</h4>
+				<div class="row">
+					<section id="projects">
+					<ul id="thumbs" class="portfolio">
+						<!-- Item Project and Filter Name -->
+						<li class="col-lg-3 design" data-id="id-0" data-type="web">
+						<div class="item-thumbs">
+						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
+						<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Work 1" href="../img/works/1.jpg">
+						<span class="overlay-img"></span>
+						<span class="overlay-img-thumb font-icon-plus"></span>
+						</a>
+						<!-- Thumb Image and Description -->
+						<img src="../img/works/1.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+						</div>
+						</li>
+						<!-- End Item Project -->
+						<!-- Item Project and Filter Name -->
+						<li class="item-thumbs col-lg-3 design" data-id="id-1" data-type="icon">
+						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
+						<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Work 2" href="../img/works/2.jpg">
+						<span class="overlay-img"></span>
+						<span class="overlay-img-thumb font-icon-plus"></span>
+						</a>
+						<!-- Thumb Image and Description -->
+						<img src="../img/works/2.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+						</li>
+						<!-- End Item Project -->
+						<!-- Item Project and Filter Name -->
+						<li class="item-thumbs col-lg-3 photography" data-id="id-2" data-type="illustrator">
+						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
+						<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Work 3" href="../img/works/3.jpg">
+						<span class="overlay-img"></span>
+						<span class="overlay-img-thumb font-icon-plus"></span>
+						</a>
+						<!-- Thumb Image and Description -->
+						<img src="../img/works/3.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+						</li>
+						<!-- End Item Project -->
+						<!-- Item Project and Filter Name -->
+						<li class="item-thumbs col-lg-3 photography" data-id="id-2" data-type="illustrator">
+						<!-- Fancybox - Gallery Enabled - Title - Full Image -->
+						<a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Work 4" href="../img/works/4.jpg">
+						<span class="overlay-img"></span>
+						<span class="overlay-img-thumb font-icon-plus"></span>
+						</a>
+						<!-- Thumb Image and Description -->
+						<img src="../img/works/4.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+						</li>
+						<!-- End Item Project -->
+					</ul>
+					</section>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	</section>
+	<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3">
+				<div class="widget">
+					<h5 class="widgetheading">Get in touch with us</h5>
+					<address>
+					<strong>Moderna company Inc</strong><br>
+					 Modernbuilding suite V124, AB 01<br>
+					 Someplace 16425 Earth </address>
+					<p>
+						<i class="icon-phone"></i> (123) 456-7890 - (123) 555-7891 <br>
+						<i class="icon-envelope-alt"></i> email@domainname.com
+					</p>
+				</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="widget">
+					<h5 class="widgetheading">Pages</h5>
+					<ul class="link-list">
+						<li><a href="#">Press release</a></li>
+						<li><a href="#">Terms and conditions</a></li>
+						<li><a href="#">Privacy policy</a></li>
+						<li><a href="#">Career center</a></li>
+						<li><a href="#">Contact us</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="widget">
+					<h5 class="widgetheading">Latest posts</h5>
+					<ul class="link-list">
+						<li><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
+						<li><a href="#">Pellentesque et pulvinar enim. Quisque at tempor ligula</a></li>
+						<li><a href="#">Natus error sit voluptatem accusantium doloremque</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="widget">
+					<h5 class="widgetheading">Flickr photostream</h5>
+					<div class="flickr_badge">
+						<script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=8&amp;display=random&amp;size=s&amp;layout=x&amp;source=user&amp;user=34178660@N03"></script>
+					</div>
+					<div class="clear">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="sub-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="copyright">
+						<p>
+							<span>&copy; Moderna 2014 All right reserved. By </span><a href="http://bootstraptaste.com" target="_blank">Bootstraptaste</a>
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<ul class="social-network">
+						<li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+						<li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
+						<li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	</footer>
+</div>
+<a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+<!-- javascript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+</body>
+</html>

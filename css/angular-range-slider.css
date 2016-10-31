@@ -1,0 +1,110 @@
+/* Empty. Add your own CSS if you like */
+input[type=range]{
+    -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 300px;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #13b6ff;
+    margin-top: -4px;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+}
+
+.search-box:not(:valid) ~ .close-icon {
+	display: none;
+}
+.close-icon {
+	border:1px solid transparent;
+	background-color: transparent;
+	display: inline-block;
+	vertical-align: middle;
+  outline: 0;
+  cursor: pointer;
+}
+.search-box {
+	width: 80%;
+	border: 1px solid #ccc;
+  outline: 0;
+  border-radius: 15px;
+}
+.search-box:focus {
+	box-shadow: 0 0 15px 5px #b0e0ee;
+	border: 2px solid #bebede;
+}
+}
+.search-box,.close-icon,.search-wrapper {
+	position: relative;
+	padding: 10px;
+}
+#map {
+  width: 100%;
+  height: 100%;
+  padding-left: 80px ; 
+}
+
+.scroll {
+  height: 100%;
+}
+.angular-range-slider {
+  display: inline-block;
+  position: relative;
+  height: 10px;
+  width: 100%;
+  margin: 25px 5px 25px 5px;
+  vertical-align: middle; }
+  .angular-range-slider div {
+    white-space: nowrap;
+    position: absolute; }
+    .angular-range-slider div.bar {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      background: #444;
+      overflow: hidden; }
+      .angular-range-slider div.bar .selection {
+        width: 0;
+        height: 100%;
+        background: #13b6ff; }
+    .angular-range-slider div.handle {
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      top: -15px;
+      background-color: #13b6ff;
+      border: 6px solid #000;
+      z-index: 2;
+      border-radius: 100%; }
+      .angular-range-slider div.handle.active {
+        background-color: #0077ac; }
+    .angular-range-slider div.bubble {
+      display: none;
+      cursor: default;
+      top: -32px;
+      padding: 1px 3px 1px 3px;
+      font-size: 0.7em;
+      font-family: sans-serif; }
+      .angular-range-slider div.bubble.active {
+        display: inline-block; }
+      .angular-range-slider div.bubble.limit {
+        color: #777; }
+
+/*# sourceMappingURL=angular-range-slider.css.map */

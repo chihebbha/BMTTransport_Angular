@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BMT Transport | Get a card</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="" />
+<meta name="author" content="http://bootstraptaste.com" />
+<!-- css -->
+<!--<link href="css/bootstrap.min.css" rel="stylesheet" />
+<link href="css/fancybox/jquery.fancybox.css" rel="stylesheet">
+<link href="css/jcarousel.css" rel="stylesheet" />
+<link href="css/flexslider.css" rel="stylesheet" />
+<link href="css/style.css" rel="stylesheet" />-->
+
+
+<!-- Theme skin 
+<link href="skins/default.css" rel="stylesheet" />
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+<div id="wrapper">
+
+	<!-- start header -->
+	<header>
+        <div class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                                        <a class="navbar-brand" href="#/"><img src="../img/logo.png"/><span>BMT</span>ransport</a>
+
+                </div>
+                <div class="navbar-collapse collapse ">
+                    <ul class="nav navbar-nav" ng-controller="verifCtrl">
+                        <li><a href="#/">Home</a></li>
+                        
+                        <li><a href="#/">News</a></li>
+                        <li><a href="#/subscriptions">Get a card</a></li>
+                          <li   class="dropdown" ><a href="" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Booking</a>
+                        
+                            
+                             <ul class="dropdown-menu">
+                                <li><a href="#/reservations">my bookings</a></li>
+                                 <li><a href="#/Addreservations">book</a></li>
+                            </ul>
+                        
+                        
+                        </li>
+                        
+                        <li   class="dropdown"  ><a href="" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">Claim</a>
+                        
+                            
+                             <ul class="dropdown-menu">
+                                <li><a href="#/reclamations">my claims</a></li>
+                                 <li><a href="#/AddReclamations">Claiming</a></li>
+                            </ul>
+                        
+                        
+                        </li>
+                        <li ><a href="#/listBus">Our Fleet</a></li>
+                        <li class="active"><a href="#/stat">Statistics</a></li>
+                        
+                        <li ng-if="login"><a href="#/contact">Contact</a></li>
+                        
+                    
+                        <li><a ng-if="login" href="#/login">Login</a></li>
+                        
+                        <li><a ng-if="logout" href="#/login">Logout</a></li>
+
+                        
+                        <li ng-if="logout" class="dropdown" ng-controller="verifCtrl">
+                            
+                            <img src="../img/{{usermail}}.png" alt="" href="#/" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false" style="border-radius: 50px; margin-left: 50px; margin-top: -10px; width: 60px; height: 60px;"/>
+
+                            <ul class="dropdown-menu">
+                                <li><a href="#/">Change your picture</a></li>
+                            </ul>
+                            
+                            <br>&nbsp;&nbsp;&nbsp;{{usernomprenom}}
+                        </li>
+                        
+                        <li ng-if="login" class="dropdown" ng-controller="verifCtrl">
+        
+                            <img src="../img/avatar.png" alt="" href="#/" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false" style="border-radius: 50px; margin-left: 50px; margin-top: -10px; width: 60px; height: 60px;"/>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/">Change your picture</a></li>
+                            </ul>
+                        </li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+	</header>
+	<!-- end header -->
+	<section id="inner-headline">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<ul class="breadcrumb">
+					<li><a href="#/"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+					<li class="active">{{user}}'s subscriptions</li>
+				</ul>
+            </div>
+		</div>
+	</div>
+	</section>
+	<section id="content">
+	<div class="container" align="center">
+
+        
+
+  
+
+   
+          
+   
+     
+ <chart   data=tableau inner-r="165" outer-r="200" font-size="17">
+     
+      <div >
+     <img src="img/rouge.png" height="25" width="25">Bus<br><br>
+         <img src="../img/orange.png" height="25" width="25">Train<br><br>
+         <img src="../img/bleu.png" height="25" width="25">Metro
+     </div>
+     </chart>
+     
+       
+         
+    <div  src="'https://s3-us-west-2.amazonaws.com/cirrus-analytics-testdata/donutChartData.json'">
+     </div>
+        
+
+       
+        
+	</div>
+    <style>
+        #test{
+            margin-top: -200px;
+        }
+        </style>
+ 
+    
+	</section>
+	
+</div>
+<a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+<!-- javascript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster 
+<script src="js/jquery.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.fancybox.pack.js"></script>
+<script src="js/jquery.fancybox-media.js"></script>
+<script src="js/google-code-prettify/prettify.js"></script>
+<script src="js/portfolio/jquery.quicksand.js"></script>
+<script src="js/portfolio/setting.js"></script>
+<script src="js/jquery.flexslider.js"></script>
+<script src="js/animate.js"></script>
+<script src="js/custom.js"></script> -->
+</body>
+</html>
